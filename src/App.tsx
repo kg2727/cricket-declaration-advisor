@@ -138,7 +138,7 @@ function simulateOption(
   // Future sessions: sessionsRemaining - 1
 
   const oversLeftNow = Math.max(0, inputs.oversLeftThisSession - declareAfterOvers);
-  const futureSessions = Math.max(0, inputs.sessionsRemaining - (oversLeftNow > 0 ? 1 : 0));
+//  const futureSessions = Math.max(0, inputs.sessionsRemaining - (oversLeftNow > 0 ? 1 : 0));
 
   // Weather: for each remaining session, apply chance of reduction
   // We'll Monte Carlo inside the main loop when simulating chase
@@ -319,7 +319,7 @@ export default function DeclarationAdvisor() {
   const [sims, setSims] = useState(2500);
   const [seed, setSeed] = useState(1234);
 
-  const { best, runnerUp, options, preset } = useMemo(() => evaluateAllOptions({ ...inputs }, sims), [inputs, sims, seed]);
+  const { best, runnerUp, options } = useMemo(() => evaluateAllOptions({ ...inputs }, sims), [inputs, sims, seed]);
 
   const applyPreset = (key: string) => {
     const g = GROUND_PRESETS[key];
